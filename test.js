@@ -1,21 +1,23 @@
+// test.js
+const { fromEuroToDollar, fromDollarToYen, fromYenToPound } = require('./app.js');
+
 test("One euro should be 1.07 dollars", function() {
-    const { fromEuroToDollar } = require('./app.js');
-    const dollars = fromEuroToDollar();
-    const expected = dollars;
-   
-    expect(dollars).toBe(expected); 
-})
-test("One euro should be 1.07 dollars", function() {
-    const { fromDollarToYen } = require('./app.js');
-    const Yen = fromDollarToYen();
-    const expected = fromDollarToYen() * 1.07 * 156.5;
-   
-    expect(Yen).toBe(expected); 
-})
-test("One euro should be 1.07 dollars", function() {
-    const { fromYenToPound } = require('./app.js');
-    const pound = fromYenToPound();
-    const expected = fromYenToPound() * 1.07 * 156.5 * 0.87;
-    
-     expect(pound).toBe(expected); 
+    const euros = 1;
+    const dollars = fromEuroToDollar(euros);
+    const expected = 1.07;
+    expect(dollars).toBe(expected);
+});
+
+test("One dollar should be 156.5 yen", function() {
+    const dollars = 1;
+    const yen = fromDollarToYen(dollars);
+    const expected = 156.5;
+    expect(yen).toBe(expected);
+});
+
+test("One yen should be 0.87 pounds", function() {
+    const yen = 1;
+    const pounds = fromYenToPound(yen);
+    const expected = 0.87;
+    expect(pounds).toBe(expected);
 })
